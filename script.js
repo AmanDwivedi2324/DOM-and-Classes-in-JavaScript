@@ -1,119 +1,5 @@
 /*
-
-1) Closures --> In js, a closure is a feature where an inner function has access to the outer function's variables even after the outer function has finished executing.
-                This allows the inner function to "close over" its environment, preserving the state of the  variables from the outer function.
-
-                --> When a function is defined inside another function, it forms a closure. The inner function retains access to the outer function's scope, which includes:
-
-                1) = variables declared in the outer function.
-                2) = Parameters of the outer function.
-                3) = Variables declared in the global scope.
-
-
-                ---(ek parent function jo return kre ek aur function aur return hone wala function use kare parent function ka koi variable)
-
-Example ==> 1
-
-function outerFunction(){
-    let outerVariable = "I am outer variable";
-
-    function innerFunction(){
-        console.log(outerVariable);
-    }
-    return innerFunction;
-}
-
-const closureFunction = outerFunction();
-console.log(closureFunction());
-
-Example ==> 2
-
-function parentFunction(){
-    var x = "andar wala function use kr rha hai bahar wale function k variable ko ise hi kehte hai closures";
-    return function(){
-        console.log(x);
-    }
-}
-
-var ans = parentFunction();
-console.log(ans());
-
-*/
-
-/*
-
- 2) --> Null and undefined ==>  null ==> (kuch nhi, we try to find something but there is nothing)
-                                undefined ==> (variable declare but not initialised , that is variable has undefined)       var a; ==> this will give undefined*
-
-*/
-
-/*
-
-3) --> Event Bubbling and Event capturing ==>
-
-            ==> Event bubbling ==> Event propagates from target to root.
-
-            ==> Event capturing ==> Event propagates from root to target. Enabled by setting the third parameter of addEventListener to true
-
-
-
-//Event bubbling
-
-// document.querySelector("#parent").addEventListener("click",function(){
-    alert("parent");
-})
-
-document.querySelector("#superchild").addEventListener("click",function(){
-    alert("superchild");
-})
-
-//khud pr hai to khud ka bhi chalayega phir parent ka chalayega (move from superchild to parent jo milega use chalayega jo nhi milega use skip kr dega)
-
-Event capturing
-
-document.querySelector("#parent").addEventListener("click",function(){
-    alert("parent");
-},true)
-
-document.querySelector("#superchild").addEventListener("click",function(){
-    alert("superchild");
-},true)
-
-// parent ka pehle phir khudka , child ka nhi chalata like parent ka event chalane pr child ya super child ka nhi chalega but superchild ya child ka chalayenge to pehle parent ka chalega phir hi child superchild ka chalega
-
-*/
-
-/*
-
-4) --> Use Strict ==> "use strict" is a directive in js that enables strict mode, which is a way to opt into a restricted variant of js. It helps catch common coding errors and "unsafe" actions, leading to more robust and maintainable code.
-     We can use it by writing "use strict"; to the top.
-
-                    -> variable declaration       //without using use strict => a = 12 is right but with use strict => a = 12 will give error
-                    -> can't delete the variable     //without using use strict delete word can't give any error but with use strict it will give
-                    -> can't make same parameters in functions         //function(a,b,b){} => not give any error but with use strict it will give error
-                    ->
-
-
-"use strict";
-
-a = 12;
-delete a;
-function sum(a,b,b){
-
-}
-
-*/
-
-/*
-
-5) --> Eventloop => The event loop is a fundamental concept in js that allows the language to perform non-blocking operations, despite being single-threaded. It enables asynchronous programming by managing the execution of code, collecting and processing events, and executing queued sub-tasks.
-
-*/
-
-
-/*
-
-6) --> Classes in JS => Class is a program-code template for creating objects. Those objects will have some state(variables) and some behaviour(functions) inside it.
+--> Classes in JS => Class is a program-code template for creating objects. Those objects will have some state(variables) and some behaviour(functions) inside it.
 
 Example => 
 
@@ -151,7 +37,7 @@ Constructor() method is:
 
 /*
 
-7) --> Inheritance in JS => Inheritance in js in passing down properties and methods from parent class to child class. 'extends' keyword is used for inheritance.
+ --> Inheritance in JS => Inheritance in js in passing down properties and methods from parent class to child class. 'extends' keyword is used for inheritance.
 
 class Parent{
 
@@ -194,7 +80,7 @@ class Child extends Parent{
 
 /*
 
-8) --> super keyword ==> The super keyword is used to call the constructor of its parent class to access the parent's properties and methods.
+ --> super keyword ==> The super keyword is used to call the constructor of its parent class to access the parent's properties and methods.
 
 super(args);       //call parent's constructor
 
@@ -276,7 +162,7 @@ let admin1 = new Admin("aman","@gmail.com");
 
 /*
 
-9) --> Window Object ==> The window object represents an open window in a browser. It is browser's object(not of js) and is automatically created by browser.
+--> Window Object ==> The window object represents an open window in a browser. It is browser's object(not of js) and is automatically created by browser.
 
 It is global object with lots of properties and methods.
 
@@ -289,7 +175,7 @@ window object k andar document object jo html ke content ko contain karta hai an
 
 /*
 
-10) --> DOM (Document object model) ==> When a web page is loaded, the browser creates a D0M of the page.
+ --> DOM (Document object model) ==> When a web page is loaded, the browser creates a D0M of the page.
 
 The DOM in js is a programming interface that allows developers to interact with and manipulate the structure, style, and content of HTML documents.
 
@@ -299,7 +185,7 @@ It represents the HTML page as a tree of objects, with each element on the page 
 
 /*
 
-11) --> DOM Manipulation ==> 
+ --> DOM Manipulation ==> 
 
      --> selecting with id => document.getElementById("myId");
 
@@ -316,7 +202,7 @@ It represents the HTML page as a tree of objects, with each element on the page 
 
 /*
 
-12) --> Properties ==> 
+ --> Properties ==> 
 
        --> tagName => returns tag for element nodes                   (element.tagName)
 
@@ -360,7 +246,7 @@ for(box of boxes){
 
 /*
 
-13) Attributes --> 
+ Attributes --> 
 
     --> getAttribute(attr)      //to get the attribute value         (div.getAttribute("id"));
 
@@ -371,13 +257,13 @@ for(box of boxes){
 
 /*
 
-14) Style --> node.style
+ Style --> node.style
 
 */
 
 /*
 
-15) --> Insert elements ==> two step process = first create the element ==> let el = document.createElement("div");
+ --> Insert elements ==> two step process = first create the element ==> let el = document.createElement("div");
                                              = second add
 
     --> node.append(el);    //adds at the end of the node(inside)
@@ -392,7 +278,7 @@ for(box of boxes){
 
 /*
 
-16) --> delete element ==> node.remove()        //removes the node
+ --> delete element ==> node.remove()        //removes the node
 
 
 */
@@ -428,7 +314,7 @@ para.classList.add("newClass");
 
 /*
 
-17) Events in js --> The change in the state of an object is known as an event.
+ Events in js --> The change in the state of an object is known as an event.
                      Events are fired to notify code of "interesting changes" that may affect code execution.
 
                      --> Mouse events (click,doubleClick,mouseenter,mouseleave,mousemove,mouseover,etc.)
@@ -436,14 +322,14 @@ para.classList.add("newClass");
                      --> form events (submit,etc.)
                      --> print event and many more
 
-18) Event object ==> It is a special object that has details about the event. All the handlers have access to the event object's properties and methods.
+Event object ==> It is a special object that has details about the event. All the handlers have access to the event object's properties and methods.
 
 node.event = (e) => {
     //handle here
 }
 
 
-19) Event listeners ==> 
+Event listeners ==> 
 
             node.addEventListener(event,callback)
             node.removeEventListener(event,callback)
@@ -472,4 +358,117 @@ document.querySelector("#mode").addEventListener("click",function(){
 })
 
 */
+
+/*
+
+ Closures --> In js, a closure is a feature where an inner function has access to the outer function's variables even after the outer function has finished executing.
+                This allows the inner function to "close over" its environment, preserving the state of the  variables from the outer function.
+
+                --> When a function is defined inside another function, it forms a closure. The inner function retains access to the outer function's scope, which includes:
+
+                1) = variables declared in the outer function.
+                2) = Parameters of the outer function.
+                3) = Variables declared in the global scope.
+
+
+                ---(ek parent function jo return kre ek aur function aur return hone wala function use kare parent function ka koi variable)
+
+Example ==> 1
+
+function outerFunction(){
+    let outerVariable = "I am outer variable";
+
+    function innerFunction(){
+        console.log(outerVariable);
+    }
+    return innerFunction;
+}
+
+const closureFunction = outerFunction();
+console.log(closureFunction());
+
+Example ==> 2
+
+function parentFunction(){
+    var x = "andar wala function use kr rha hai bahar wale function k variable ko ise hi kehte hai closures";
+    return function(){
+        console.log(x);
+    }
+}
+
+var ans = parentFunction();
+console.log(ans());
+
+*/
+
+/*
+
+ --> Null and undefined ==>  null ==> (kuch nhi, we try to find something but there is nothing)
+                                undefined ==> (variable declare but not initialised , that is variable has undefined)       var a; ==> this will give undefined*
+
+*/
+
+/*
+
+ --> Event Bubbling and Event capturing ==>
+
+            ==> Event bubbling ==> Event propagates from target to root.
+
+            ==> Event capturing ==> Event propagates from root to target. Enabled by setting the third parameter of addEventListener to true
+
+
+
+//Event bubbling
+
+// document.querySelector("#parent").addEventListener("click",function(){
+    alert("parent");
+})
+
+document.querySelector("#superchild").addEventListener("click",function(){
+    alert("superchild");
+})
+
+//khud pr hai to khud ka bhi chalayega phir parent ka chalayega (move from superchild to parent jo milega use chalayega jo nhi milega use skip kr dega)
+
+Event capturing
+
+document.querySelector("#parent").addEventListener("click",function(){
+    alert("parent");
+},true)
+
+document.querySelector("#superchild").addEventListener("click",function(){
+    alert("superchild");
+},true)
+
+// parent ka pehle phir khudka , child ka nhi chalata like parent ka event chalane pr child ya super child ka nhi chalega but superchild ya child ka chalayenge to pehle parent ka chalega phir hi child superchild ka chalega
+
+*/
+
+/*
+
+--> Use Strict ==> "use strict" is a directive in js that enables strict mode, which is a way to opt into a restricted variant of js. It helps catch common coding errors and "unsafe" actions, leading to more robust and maintainable code.
+     We can use it by writing "use strict"; to the top.
+
+                    -> variable declaration       //without using use strict => a = 12 is right but with use strict => a = 12 will give error
+                    -> can't delete the variable     //without using use strict delete word can't give any error but with use strict it will give
+                    -> can't make same parameters in functions         //function(a,b,b){} => not give any error but with use strict it will give error
+                    ->
+
+
+"use strict";
+
+a = 12;
+delete a;
+function sum(a,b,b){
+
+}
+
+*/
+
+/*
+
+ --> Eventloop => The event loop is a fundamental concept in js that allows the language to perform non-blocking operations, despite being single-threaded. It enables asynchronous programming by managing the execution of code, collecting and processing events, and executing queued sub-tasks.
+
+*/
+
 

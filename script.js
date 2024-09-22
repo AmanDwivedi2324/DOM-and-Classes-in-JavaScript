@@ -270,7 +270,7 @@ for(box of boxes){
 
     --> node.prepend(el);    //adds at the start of node (inside)
 
-    --> node.befor(el);     //adds before the node (outside)
+    --> node.before(el);     //adds before the node (outside)
  
     --> node.after(el);     //adds after the node (outside)
 
